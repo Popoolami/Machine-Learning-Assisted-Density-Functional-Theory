@@ -1,0 +1,17 @@
+#!/bin/sh
+###script creating folders for CFGForces and CFGS files for ANN
+
+module load apps/python/3.8.5
+
+rm -rf CFGforces
+rm -rf CFGS
+
+mkdir CFGforces
+mkdir CFGS
+
+python getANNCFGs.py
+
+mv CFGForce.* CFGforces
+mv CFG.* CFGS
+
+

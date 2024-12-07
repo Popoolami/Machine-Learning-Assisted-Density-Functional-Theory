@@ -1,0 +1,18 @@
+#!/bin/sh
+###script creating folders for CFGForces files
+
+module load apps/python/3.8.5
+#forces
+rm scf.*
+python scf-forces.py
+rm -rf scf-CFGforces
+mkdir scf-CFGforces
+sed -i '1,2d' scfForce.*
+sed -i -r 's/(\s+)?\S+//1' scfForce.*
+sed -i -r 's/(\s+)?\S+//1' scfForce.*
+sed -i -r 's/(\s+)?\S+//1' scfForce.*
+sed -i -r 's/(\s+)?\S+//1' scfForce.*
+sed -i -r 's/(\s+)?\S+//1' scfForce.*
+sed -i -r 's/(\s+)?\S+//1' scfForce.*
+mv scfForce.* scf-CFGforces
+rm forces

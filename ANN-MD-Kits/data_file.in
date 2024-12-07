@@ -1,0 +1,4 @@
+stepLimit = 6500
+Verlet = 0
+Leap_Frog = 1
+Pred_Corr = 0

@@ -1,0 +1,30 @@
+#!/bin/sh
+###script creating folders for CFGForces files
+
+module load apps/python/3.8.5
+#forces
+python getForces.py
+rm -rf CFGforces
+mkdir CFGforces
+sed -i '1,2d' CFGForce.*
+sed -i -r 's/(\s+)?\S+//1' CFGForce.*
+sed -i -r 's/(\s+)?\S+//1' CFGForce.*
+sed -i -r 's/(\s+)?\S+//1' CFGForce.*
+sed -i -r 's/(\s+)?\S+//1' CFGForce.*
+sed -i -r 's/(\s+)?\S+//1' CFGForce.*
+sed -i -r 's/(\s+)?\S+//1' CFGForce.*
+mv CFGForce.* CFGforces
+
+#Positions
+python getPositions.py
+rm -rf CFGS
+mkdir CFGS
+mv CFG.* CFGS
+
+#Temperature
+grep "temperature" QE-output > temperature.dat
+sed -i -r 's/(\s+)?\S+//1' temperature.dat
+sed -i -r 's/(\s+)?\S+//1' temperature.dat
+sed -i -r 's/(\s+)?\S+//2' temperature.dat
+
+
